@@ -1,0 +1,16 @@
+{
+  "name": "httpception",
+  "version": "0.1.0",
+  "description": "Mock HTTP module",
+  "main": "lib/httpception.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andreas Lind <andreas@one.com>",
+  "license": "BSD-3-Clause",
+  "dependencies": {
+    "proxyquire": "1.7.10",
+    "unexpected": "10.19.0",
+    "unexpected-mitm": "9.3.4"
+  }
+}
