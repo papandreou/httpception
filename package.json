@@ -9,7 +9,7 @@
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "unexpected": "10.19.0",
+    "unexpected": "unexpectedjs/unexpected#feature/exposeNotifyPendingPromise",
     "unexpected-mitm": "9.3.4"
   }
 }
