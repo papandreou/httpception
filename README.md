@@ -27,5 +27,5 @@ it('should perform the right HTTP request', function () {
 });
 ```
 
-When the test is done, the http module with automatically be restored,
+When the test is done, the http module will automatically be restored,
 and the test will fail if there are unexercised mocks.
