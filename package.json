@@ -9,7 +9,6 @@
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "proxyquire": "1.7.10",
     "unexpected": "10.19.0",
     "unexpected-mitm": "9.3.4"
   }
