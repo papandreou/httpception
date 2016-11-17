@@ -1,6 +1,6 @@
 {
   "name": "httpception",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Mock HTTP module",
   "main": "lib/httpception.js",
   "scripts": {
