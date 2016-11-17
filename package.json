@@ -10,6 +10,6 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "unexpectedjs/unexpected#feature/exposeNotifyPendingPromise",
-    "unexpected-mitm": "9.3.4"
+    "unexpected-mitm": "unexpectedjs/unexpected-mitm#feature/allowPushingMoreMocks"
   }
 }
