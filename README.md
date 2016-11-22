@@ -9,7 +9,7 @@ var httpception = require('httpception');
 var got = require('got');
 var assert = require('assert');
 
-it('should perform the right HTTP request', function () {
+it('should perform the right HTTP request', () => {
     httpception({
         request: 'GET http://example.com/foobar',
         response: {
@@ -25,6 +25,31 @@ it('should perform the right HTTP request', function () {
             assert.equal(response.body, 'the text');
         });
 });
+```
+
+The http module will automatically be mocked out when the test ends. That
+is detected by registering an `afterEach` block and failing from that if
+you have unexercised mocks.
+
+If you think that involves too much magic, you can also pass a function as
+the last parameter. It will be invoked by httpceptions when the mocks
+are in place, and the mocks will be removed after it has exited. If the
+function returns a promise, the mocks will be kept until the promise has
+resolved:
+
+```js
+it('should perform the right HTTP request', () => httpception({
+    request: 'GET /foobar',
+    response: {
+        statusCode: 200,
+        body: 'the text'
+    }
+}, () => {
+    return got('example.com/foobar')
+        .then(response => {
+            assert.equal(response.body, 'the text');
+        });
+}));
 ```
 
 When the test is done, the http module will automatically be restored,
