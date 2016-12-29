@@ -32,7 +32,7 @@ is detected by registering an `afterEach` block and failing from that if
 you have unexercised mocks.
 
 If you think that involves too much magic, you can also pass a function as
-the last parameter. It will be invoked by httpceptions when the mocks
+the last parameter. It will be invoked by httpception when the mocks
 are in place, and the mocks will be removed after it has exited. If the
 function returns a promise, the mocks will be kept until the promise has
 resolved:
