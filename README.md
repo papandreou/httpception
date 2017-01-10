@@ -27,7 +27,7 @@ it('should perform the right HTTP request', () => {
 });
 ```
 
-The http module will automatically be mocked out when the test ends. That
+The http module will automatically be restored when the test ends. That
 is detected by registering an `afterEach` block and failing from that if
 you have unexercised mocks.
 
