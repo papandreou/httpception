@@ -10,6 +10,6 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "^10.22.0",
-    "unexpected-mitm": "unexpectedjs/unexpected-mitm#feature/allowPushingMoreMocks"
+    "unexpected-mitm": "unexpectedjs/unexpected-mitm#75effaf26493bca08aabba6ee7131e861cee664b"
   }
 }
