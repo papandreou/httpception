@@ -10,6 +10,6 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "^10.22.0",
-    "unexpected-mitm": "github:unexpectedjs/unexpected-mitm#d933230dd7bad8dd4d421dd35cfe7ccc328eb1ec"
+    "unexpected-mitm": "^9.4.0"
   }
 }
