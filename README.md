@@ -1,6 +1,11 @@
 httpception
 ===========
 
+[![NPM version](https://badge.fury.io/js/httpception.svg)](http://badge.fury.io/js/httpception)
+[![Build Status](https://travis-ci.org/papandreou/httpception.svg?branch=master)](https://travis-ci.org/papandreou/httpception)
+[![Coverage Status](https://coveralls.io/repos/papandreou/httpception/badge.svg)](https://coveralls.io/r/papandreou/httpception)
+[![Dependency Status](https://david-dm.org/papandreou/httpception.svg)](https://david-dm.org/papandreou/httpception)
+
 Mock out HTTP traffic during a test, experimentally extracted from
 [unexpected-mitm](https://github.com/unexpectedjs/unexpected-mitm/):
 
