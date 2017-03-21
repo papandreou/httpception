@@ -28,7 +28,7 @@ describe('httpception', function () {
                 .then(() => expect('POST http://example.com/', 'to yield response', 200));
         });
 
-        it('should mock out two requests given as an array succeed when they are performed', function () {
+        it('should mock out two requests given as an array and succeed when they are performed', function () {
             httpception([
                 {
                     request: 'GET http://example.com/',
