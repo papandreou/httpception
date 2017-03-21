@@ -3,6 +3,48 @@ const expect = require('unexpected').clone()
 const httpception = require('../lib/httpception');
 
 describe('httpception', function () {
+    describe('when invoked without a promise factory', function () {
+        it('should mock out a single request and succeed when it is performed', function () {
+            httpception({
+                request: 'GET http://example.com/',
+                response: 200
+            });
+
+            return expect('GET http://example.com/', 'to yield response', 200);
+        });
+
+        it('should mock out two requests given in separate httpception calls and succeed when they are performed', function () {
+            httpception({
+                request: 'GET http://example.com/',
+                response: 200
+            });
+
+            httpception({
+                request: 'POST http://example.com/',
+                response: 200
+            });
+
+            return expect('GET http://example.com/', 'to yield response', 200)
+                .then(() => expect('POST http://example.com/', 'to yield response', 200));
+        });
+
+        it('should mock out two requests given as an array succeed when they are performed', function () {
+            httpception([
+                {
+                    request: 'GET http://example.com/',
+                    response: 200
+                },
+                {
+                    request: 'POST http://example.com/',
+                    response: 200
+                }
+            ]);
+
+            return expect('GET http://example.com/', 'to yield response', 200)
+                .then(() => expect('POST http://example.com/', 'to yield response', 200));
+        });
+    });
+
     describe('invoked in "promise factory" mode', function () {
         it('should succeed', function () {
             return httpception({
