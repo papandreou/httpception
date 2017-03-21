@@ -4,12 +4,29 @@
   "description": "Mock HTTP module",
   "main": "lib/httpception.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "test": "mocha",
+    "travis": "npm test && npm run lint && npm run coverage && (<coverage/lcov.info coveralls || true)",
+    "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- mocha && echo google-chrome coverage/lcov-report/index.html"
   },
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "^10.22.0",
     "unexpected-mitm": "9.4.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.12.0",
+    "eslint": "^3.18.0",
+    "eslint-config-onelint": "^2.0.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2",
+    "unexpected": "^10.26.3",
+    "unexpected-http": "^5.6.0"
+  },
+  "nyc": {
+    "include": [
+      "lib/**"
+    ]
   }
 }
