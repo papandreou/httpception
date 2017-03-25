@@ -24,7 +24,7 @@ describe('in afterEach mode', function () {
 
         return fs.writeFileAsync(tmpFileName, preamble + code, 'utf-8')
         .then(() => expect.promise.fromNode(cb => childProcess.exec(testCommand, cb.bind(null, null))))
-        .then(([stdout, stderr]) => expect.shift(stderr))
+        .then(stdoutAndStderr => expect.shift(stdoutAndStderr[1]))
         .finally(() => fs.unlinkAsync(tmpFileName));
     });
 
