@@ -149,5 +149,17 @@ describe('httpception', function () {
                 );
             });
         });
+
+        it('should throw if an unsupported property is passed as part of a response property', function () {
+            expect(function () {
+                httpception({
+                    request: 'GET http://example.com/',
+                    response: {
+                        statusCode: 200,
+                        foobarquux: 123
+                    }
+                }, function () {});
+            }, 'to throw', 'messy.Message: Unsupported property name: foobarquux');
+        });
     });
 });
