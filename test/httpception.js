@@ -53,6 +53,14 @@ describe('httpception', function () {
             }, () => expect('GET http://example.com/', 'to yield response', 200));
         });
 
+        it('should not return a mitm error if the http conversation was ok', function () {
+            return expect(
+                httpception([], () => Promise.reject(new Error('foo'))),
+                'to be rejected with',
+                new Error('foo')
+            );
+        });
+
         it('should succeed when a single function is passed and it does not perform any HTTP requests', function () {
             return httpception(() => Promise.resolve());
         });
@@ -64,11 +72,12 @@ describe('httpception', function () {
                     response: 200
                 }, () => Promise.resolve()),
                 'to be rejected with',
-                    '// missing:\n' +
-                    '// GET /\n' +
-                    '// Host: example.com\n' +
-                    '//\n' +
-                    '// HTTP/1.1 200 OK'
+                    'expected function ( /*...*/ ) { /*...*/ } to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
+                    '  // missing:\n' +
+                    '  // GET /\n' +
+                    '  // Host: example.com\n' +
+                    '  //\n' +
+                    '  // HTTP/1.1 200 OK'
             );
         });
 
@@ -81,11 +90,12 @@ describe('httpception', function () {
                     }
                 ], () => Promise.resolve()),
                 'to be rejected with',
-                    '// missing:\n' +
-                    '// GET /\n' +
-                    '// Host: example.com\n' +
-                    '//\n' +
-                    '// HTTP/1.1 200 OK'
+                    'expected function ( /*...*/ ) { /*...*/ } to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
+                    '  // missing:\n' +
+                    '  // GET /\n' +
+                    '  // Host: example.com\n' +
+                    '  //\n' +
+                    '  // HTTP/1.1 200 OK'
             );
         });
 
@@ -139,13 +149,14 @@ describe('httpception', function () {
                 return expect(
                     httpception([], () => expect('GET http://example.com/', 'to yield response', 200)),
                     'to be rejected with',
-                        'GET / HTTP/1.1 // should be POST /\n' +
-                        '               //\n' +
-                        '               // -GET / HTTP/1.1\n' +
-                        '               // +POST / HTTP/1.1\n' +
-                        'Host: example.com\n' +
+                        'expected function ( /*...*/ ) { /*...*/ } to perform HTTP traffic [ { request: \'POST http://example.com/\', response: 200 } ]\n' +
+                        '  GET / HTTP/1.1 // should be POST /\n' +
+                        '                 //\n' +
+                        '                 // -GET / HTTP/1.1\n' +
+                        '                 // +POST / HTTP/1.1\n' +
+                        '  Host: example.com\n' +
                         '\n' +
-                        'HTTP/1.1 200 OK'
+                        '  HTTP/1.1 200 OK'
                 );
             });
         });
