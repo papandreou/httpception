@@ -2,6 +2,8 @@ const expect = require('unexpected').clone()
     .use(require('unexpected-http'));
 const httpception = require('../lib/httpception');
 
+httpception.expect.output.preferredWidth = 140;
+
 describe('httpception', function () {
     describe('when invoked without a promise factory', function () {
         it('should mock out a single request and succeed when it is performed', function () {
