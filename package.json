@@ -12,8 +12,8 @@
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "unexpected": "^10.22.0",
-    "unexpected-mitm": "9.5.0"
+    "unexpected": "^10.27.0",
+    "unexpected-mitm": "^10.0.0"
   },
   "devDependencies": {
     "coveralls": "^2.12.0",
