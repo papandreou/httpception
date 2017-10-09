@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "npm run test-mocha && npm run test-jest && npm run test-integration",
-    "test-integration": "mocha integration-test/test.js",
+    "test-integration": "mocha integration-test/test.js --timeout 10000",
     "test-mocha": "mocha --opts test/mocha/mocha.opts",
     "test-jest": "jest --config test/jest/jest.config.js",
     "travis": "npm test && npm run lint && npm run coverage && (<coverage/lcov.info coveralls || true)",
@@ -22,7 +22,7 @@
     "coveralls": "^2.12.0",
     "eslint": "^3.18.0",
     "eslint-config-onelint": "^2.0.0",
-    "jest": "^21.2.1",
+    "jest": "^20.0.4",
     "mocha": "^3.2.0",
     "nyc": "^10.1.2",
     "unexpected-http": "^5.6.0"
