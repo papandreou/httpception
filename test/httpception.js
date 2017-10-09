@@ -74,7 +74,7 @@ describe('httpception', function () {
                     response: 200
                 }, () => Promise.resolve()),
                 'to be rejected with',
-                    'expected function ( /*...*/ ) { /*...*/ } to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
+                    'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
                     '  // missing:\n' +
                     '  // GET /\n' +
                     '  // Host: example.com\n' +
@@ -92,7 +92,7 @@ describe('httpception', function () {
                     }
                 ], () => Promise.resolve()),
                 'to be rejected with',
-                    'expected function ( /*...*/ ) { /*...*/ } to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
+                    'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
                     '  // missing:\n' +
                     '  // GET /\n' +
                     '  // Host: example.com\n' +
@@ -151,7 +151,8 @@ describe('httpception', function () {
                 return expect(
                     httpception([], () => expect('GET http://example.com/', 'to yield response', 200)),
                     'to be rejected with',
-                        'expected function ( /*...*/ ) { /*...*/ } to perform HTTP traffic [ { request: \'POST http://example.com/\', response: 200 } ]\n' +
+                    'expected () => expect(\'GET http://example.com/\', \'to yield response\', 200)\n' +
+                        'to perform HTTP traffic [ { request: \'POST http://example.com/\', response: 200 } ]\n' +
                         '  GET / HTTP/1.1 // should be POST /\n' +
                         '                 //\n' +
                         '                 // -GET / HTTP/1.1\n' +

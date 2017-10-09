@@ -12,7 +12,7 @@
   "author": "Andreas Lind <andreas@one.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
-    "unexpected": "^10.27.0",
+    "unexpected": "^10.30.0",
     "unexpected-mitm": "^10.0.0"
   },
   "devDependencies": {
