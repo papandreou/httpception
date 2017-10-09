@@ -5,7 +5,8 @@
   "main": "lib/httpception.js",
   "scripts": {
     "lint": "eslint .",
-    "test": "npm run test-mocha && npm run test-jest",
+    "test": "npm run test-mocha && npm run test-jest && npm run test-integration",
+    "test-integration": "mocha integration-test/test.js",
     "test-mocha": "mocha --opts test/mocha/mocha.opts",
     "test-jest": "jest --config test/jest/jest.config.js",
     "travis": "npm test && npm run lint && npm run coverage && (<coverage/lcov.info coveralls || true)",
