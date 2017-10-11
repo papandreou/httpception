@@ -222,7 +222,6 @@ describe('in afterEach mode', function () {
                 ]);
 
                 return expect('/foo', 'to yield response', 200).then(
-                ).then(
                     () => expect('/foo', 'to yield response', 200)
                 ).catch(
                     (err) => new Promise((resolve, reject) => {
