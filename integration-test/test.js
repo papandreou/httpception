@@ -16,6 +16,12 @@ describe('in afterEach mode', function () {
     expect.addAssertion('<function> when run through (mocha|jest) <assertion>', (expect, subject) => {
         expect.errorMode = 'nested';
         const isMocha = expect.alternations[0] === 'mocha';
+
+        if (process.env.JEST === 'false' && expect.alternations[0] === 'jest') {
+            // Allow to disable jest assertions when running integration tests for coverage.
+            return expect(true, 'to be ok');
+        }
+
         const code = subject.toString().replace(/^[^{]+\{|\}\s*$/g, '');
         expect.subjectOutput = function (output) {
             output.code(code, 'javascript');
