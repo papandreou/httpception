@@ -210,4 +210,45 @@ describe('in afterEach mode', function () {
             ).and('to contain', '1 failed, 1 total')
         });
     });
+
+    it('should error from both afterEach and the it block', function () {
+        return expect(() => {
+            /* eslint-disable */
+            it('should foo', function () {
+                httpception([
+                    { request: 'GET /foo', response: 200 },
+                    { request: 'GET /bar', response: 200 },
+                    { request: 'GET /baz', response: 200 }
+                ]);
+
+                return expect('/foo', 'to yield response', 200).then(
+                ).then(
+                    () => expect('/foo', 'to yield response', 200)
+                ).catch(
+                    (err) => new Promise((resolve, reject) => {
+                        const actualError = new Error('Actual Error');
+                        setTimeout(() => reject(actualError), 500)
+                    })
+                );
+            });
+            /* eslint-enable */
+        }, 'when run through mocha to satisfy', {
+            stdout:
+                expect.it('to contain', '1) should foo')
+                    .and('to contain', '2) "after each" hook for "should foo"')
+        }).and('when run through jest to satisfy', {
+            stderr:
+                expect
+                    .it('to contain', '● should foo\n\n    Actual Error')
+                    .and('to contain', '● should foo\n\n    \n    expected')
+                    .and(
+                        'to contain',
+                        '    GET /foo HTTP/1.1 // should be GET /bar\n' +
+                        '                      //\n' +
+                        '                      // -GET /foo HTTP/1.1\n' +
+                        '                      // +GET /bar HTTP/1.1'
+                    ).
+                    and('to contain', '1 failed, 1 total')
+        });
+    });
 });
