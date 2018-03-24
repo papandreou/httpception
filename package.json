@@ -13,7 +13,7 @@
     "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm run coverage-test && echo google-chrome coverage/lcov-report/index.html",
     "coverage-test": "npm run test-mocha && JEST=false npm run test-integration"
   },
-  "author": "Andreas Lind <andreas@one.com>",
+  "author": "Andreas Lind <andreaslindpetersen@gmail.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "^10.30.0",
