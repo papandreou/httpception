@@ -17,7 +17,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "^10.30.0",
-    "unexpected-mitm": "git@github.com:alexjeffburke/unexpected-mitm.git#wip/assertAgainstMocker"
+    "unexpected-mitm": "alexjeffburke/unexpected-mitm#wip/assertAgainstMocker"
   },
   "devDependencies": {
     "coveralls": "^2.12.0",
