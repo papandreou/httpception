@@ -15,9 +15,11 @@ describe('in afterEach mode', function () {
 
     expect.addAssertion('<function> when run through (mocha|jest) <assertion>', (expect, subject) => {
         expect.errorMode = 'nested';
-        const isMocha = expect.alternations[0] === 'mocha';
+        const runner = expect.alternations[0];
+        const isMocha = runner === 'mocha';
+        const isJest = expect.alternations[0] === 'jest';
 
-        if (process.env.JEST === 'false' && expect.alternations[0] === 'jest') {
+        if (process.env.JEST === 'false' && isJest) {
             // Allow to disable jest assertions when running integration tests for coverage.
             return expect(true, 'to be ok');
         }
@@ -26,7 +28,7 @@ describe('in afterEach mode', function () {
         expect.subjectOutput = function (output) {
             output.code(code, 'javascript');
         };
-        const tmpFileName = pathModule.resolve(tmpDir, 'httpception' + Math.round(10000000 * Math.random()) + '.js');
+        const tmpFileName = pathModule.resolve(tmpDir, `httpception.${runner}-${Math.round(10000000 * Math.random())}.test.js`);
         var testCommand;
         if (isMocha) {
             testCommand = process.argv[0] + ' ' + pathModule.resolve(__dirname, '..', 'node_modules', '.bin', 'mocha') + ' ' + tmpFileName;
