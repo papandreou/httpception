@@ -70,9 +70,11 @@ describe('in afterEach mode', function () {
             });
             /* eslint-enable */
         }, 'when run through mocha to satisfy', {
-            stdout: /"after each" hook for "should foo"[\s\S]*\/\/ missing:\n\/\/ GET \/\n/
+            stdout: /"after each" hook for "should foo"[\s\S]*\/\/ missing:\n\/\/ GET \/\n/,
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
         }).and('when run through jest to satisfy', {
-            stderr: expect.it('to contain', '✕ should foo').and('to contain', '1 failed, 1 total')
+            stderr: expect.it('to contain', '✕ should foo').and('to contain', '1 failed, 1 total'),
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
         });
     });
 
@@ -94,9 +96,10 @@ describe('in afterEach mode', function () {
                 'Host: localhost\n' +
                 '\n' +
                 'HTTP/1.1 200 OK\n'
-            )
+            ),
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
         }).and('when run through jest to satisfy', {
-            stderr: expect.it(
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection').and(
                 'to contain',
                 '    GET /bar HTTP/1.1 // should be GET /foo\n' +
                 '                      //\n' +
@@ -132,9 +135,10 @@ describe('in afterEach mode', function () {
                 'Host: localhost\n' +
                 '\n' +
                 'HTTP/1.1 200 OK\n'
-            )
+            ),
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
         }).and('when run through jest to satisfy', {
-            stderr: expect.it(
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection').and(
                 'to contain',
                 '    GET /bar HTTP/1.1 // should be GET /foo\n' +
                 '                      //\n' +
@@ -170,9 +174,10 @@ describe('in afterEach mode', function () {
                 'Host: localhost\n' +
                 '\n' +
                 'HTTP/1.1 200 OK\n'
-            )
+            ),
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
         }).and('when run through jest to satisfy', {
-            stderr: expect.it(
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection').and(
                 'to contain',
                 '    GET /bar HTTP/1.1 // should be GET /foo\n' +
                 '                      //\n' +
@@ -207,9 +212,10 @@ describe('in afterEach mode', function () {
                 '                  //\n' +
                 '                  // -GET /foo HTTP/1.1\n' +
                 '                  // +GET /bar HTTP/1.1'
-            )
+            ),
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
         }).and('when run through jest to satisfy', {
-            stderr: expect.it(
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection').and(
                 'to contain',
                 '    GET /foo HTTP/1.1 // should be GET /bar\n' +
                 '                      //\n' +
@@ -242,11 +248,12 @@ describe('in afterEach mode', function () {
         }, 'when run through mocha to satisfy', {
             stdout:
                 expect.it('to contain', '1) should foo')
-                    .and('to contain', '2) "after each" hook for "should foo"')
+                    .and('to contain', '2) "after each" hook for "should foo"'),
+            stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
         }).and('when run through jest to satisfy', {
             stderr:
-                expect
-                    .it('to contain', '● should foo\n\n    Actual Error')
+                expect.it('not to contain', 'UnhandledPromiseRejection')
+                    .and('to contain', '● should foo\n\n    Actual Error')
                     .and('to contain', '● should foo\n\n    \n    expected')
                     .and(
                         'to contain',
