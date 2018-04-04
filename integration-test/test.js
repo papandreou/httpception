@@ -254,7 +254,7 @@ describe('in afterEach mode', function () {
             stderr:
                 expect.it('not to contain', 'UnhandledPromiseRejection')
                     .and('to contain', '● should foo\n\n    Actual Error')
-                    .and('to contain', '● should foo\n\n    \n    expected')
+                    .and('to contain', '● should foo\n\n    UnexpectedError: \n    expected')
                     .and(
                         'to contain',
                         '    GET /foo HTTP/1.1 // should be GET /bar\n' +
