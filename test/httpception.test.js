@@ -75,11 +75,12 @@ describe('httpception', function () {
                 }, () => Promise.resolve()),
                 'to be rejected with',
                     'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
-                    '  // missing:\n' +
-                    '  // GET /\n' +
-                    '  // Host: example.com\n' +
-                    '  //\n' +
-                    '  // HTTP/1.1 200 OK'
+                    '\n' +
+                    '// missing:\n' +
+                    '// GET /\n' +
+                    '// Host: example.com\n' +
+                    '//\n' +
+                    '// HTTP/1.1 200 OK'
             );
         });
 
@@ -93,11 +94,12 @@ describe('httpception', function () {
                 ], () => Promise.resolve()),
                 'to be rejected with',
                     'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
-                    '  // missing:\n' +
-                    '  // GET /\n' +
-                    '  // Host: example.com\n' +
-                    '  //\n' +
-                    '  // HTTP/1.1 200 OK'
+                    '\n' +
+                    '// missing:\n' +
+                    '// GET /\n' +
+                    '// Host: example.com\n' +
+                    '//\n' +
+                    '// HTTP/1.1 200 OK'
             );
         });
 
@@ -153,27 +155,30 @@ describe('httpception', function () {
                     'to be rejected with',
                     'expected () => expect(\'GET http://example.com/\', \'to yield response\', 200)\n' +
                         'to perform HTTP traffic [ { request: \'POST http://example.com/\', response: 200 } ]\n' +
-                        '  GET / HTTP/1.1 // should be POST /\n' +
-                        '                 //\n' +
-                        '                 // -GET / HTTP/1.1\n' +
-                        '                 // +POST / HTTP/1.1\n' +
-                        '  Host: example.com\n' +
                         '\n' +
-                        '  HTTP/1.1 200 OK'
+                        'GET / HTTP/1.1 // should be POST /\n' +
+                        '               //\n' +
+                        '               // -GET / HTTP/1.1\n' +
+                        '               // +POST / HTTP/1.1\n' +
+                        'Host: example.com\n' +
+                        '\n' +
+                        'HTTP/1.1 200 OK'
                 );
             });
         });
 
         it('should throw if an unsupported property is passed as part of a response property', function () {
-            expect(function () {
+            return expect(
                 httpception({
                     request: 'GET http://example.com/',
                     response: {
                         statusCode: 200,
                         foobarquux: 123
                     }
-                }, function () {});
-            }, 'to throw', 'messy.Message: Unsupported property name: foobarquux');
+                }, function () {}),
+                'to be rejected with',
+                'messy.Message: Unsupported property name: foobarquux'
+            );
         });
     });
 });
