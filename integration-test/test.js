@@ -21,7 +21,10 @@ describe('in afterEach mode', function() {
       const isMocha = runner === 'mocha';
       const isJest = expect.alternations[0] === 'jest';
 
-      if (process.env.JEST === 'false' && isJest) {
+      if (
+        isJest &&
+        (process.env.JEST === 'false' || /^v[012345]\./.test(process.version))
+      ) {
         // Allow to disable jest assertions when running integration tests for coverage.
         return expect(true, 'to be ok');
       }
