@@ -106,8 +106,8 @@ describe('in afterEach mode', function() {
     ).and('when run through jest to satisfy', {
       stderr: expect
         .it('to contain', '✕ should foo')
-        .and('to contain', '1 failed, 1 total'),
-      stderr: expect.it('not to contain', 'UnhandledPromiseRejection')
+        .and('to contain', '1 failed, 1 total')
+        .and('not to contain', 'UnhandledPromiseRejection')
     });
   });
 
