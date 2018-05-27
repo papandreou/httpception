@@ -8,7 +8,7 @@
     "test": "npm run test-mocha && npm run test-jest && npm run test-integration",
     "test-integration": "mocha integration-test/test.js --timeout 30000",
     "test-mocha": "mocha --opts test/mocha/mocha.opts",
-    "test-jest": "jest --config test/jest/jest.config.js",
+    "test-jest": "if ( node-version-gte-6 ); then jest --config test/jest/jest.config.js; fi",
     "travis": "npm test && npm run lint && npm run coverage && (<coverage/lcov.info coveralls || true)",
     "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm run coverage-test && echo google-chrome coverage/lcov-report/index.html",
     "coverage-test": "npm run test-mocha && JEST=false npm run test-integration"
@@ -25,6 +25,7 @@
     "eslint-config-onelint": "^2.0.0",
     "jest": "^23.0.1",
     "mocha": "^3.2.0",
+    "node-version-check": "2.2.0",
     "nyc": "^10.1.2",
     "unexpected-http": "^5.6.0"
   },
