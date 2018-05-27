@@ -106,7 +106,7 @@ describe('in afterEach mode', function () {
                 '                      // -GET /bar HTTP/1.1\n' +
                 '                      // +GET /foo HTTP/1.1\n' +
                 '    Host: localhost\n' +
-                '    \n' +
+                '\n' +
                 '    HTTP/1.1 200 OK\n'
             ).and('to contain', '1 failed, 1 total')
         });
@@ -145,7 +145,7 @@ describe('in afterEach mode', function () {
                 '                      // -GET /bar HTTP/1.1\n' +
                 '                      // +GET /foo HTTP/1.1\n' +
                 '    Host: localhost\n' +
-                '    \n' +
+                '\n' +
                 '    HTTP/1.1 200 OK\n'
             ).and('to contain', '1 failed, 1 total')
         });
@@ -184,7 +184,7 @@ describe('in afterEach mode', function () {
                 '                      // -GET /bar HTTP/1.1\n' +
                 '                      // +GET /foo HTTP/1.1\n' +
                 '    Host: localhost\n' +
-                '    \n' +
+                '\n' +
                 '    HTTP/1.1 200 OK\n'
             ).and('to contain', '1 failed, 1 total')
         });
