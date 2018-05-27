@@ -70,11 +70,11 @@ describe('in afterEach mode', function() {
     return expect(
       () => {
         /* eslint-disable */
-            it('should foo', function () {
-                httpception({ request: 'GET /', response: 200 });
-                return expect('GET /', 'to yield response', 200);
-            });
-            /* eslint-enable */
+        it('should foo', function() {
+          httpception({ request: 'GET /', response: 200 });
+          return expect('GET /', 'to yield response', 200);
+        });
+        /* eslint-enable */
       },
       'when run through mocha to satisfy',
       {
@@ -93,10 +93,10 @@ describe('in afterEach mode', function() {
     return expect(
       () => {
         /* eslint-disable */
-            it('should foo', function () {
-                httpception({ request: 'GET /', response: 200 });
-            });
-            /* eslint-enable */
+        it('should foo', function() {
+          httpception({ request: 'GET /', response: 200 });
+        });
+        /* eslint-enable */
       },
       'when run through mocha to satisfy',
       {
@@ -115,11 +115,11 @@ describe('in afterEach mode', function() {
     return expect(
       () => {
         /* eslint-disable */
-            it('should foo', function () {
-                httpception({ request: 'GET /foo', response: 200 });
-                return expect('/bar', 'to yield response', 200);
-            });
-            /* eslint-enable */
+        it('should foo', function() {
+          httpception({ request: 'GET /foo', response: 200 });
+          return expect('/bar', 'to yield response', 200);
+        });
+        /* eslint-enable */
       },
       'when run through mocha to satisfy',
       {
@@ -156,16 +156,16 @@ describe('in afterEach mode', function() {
     return expect(
       () => {
         /* eslint-disable */
-            it('should foo', function () {
-                httpception({ request: 'GET /foo', response: 200 });
-                return expect('/bar', 'to yield response', 200);
-            });
+        it('should foo', function() {
+          httpception({ request: 'GET /foo', response: 200 });
+          return expect('/bar', 'to yield response', 200);
+        });
 
-            it('should bar', function () {
-                httpception({ request: 'GET /foo', response: 200 });
-                return expect('GET /bar', 'to yield response', 200);;
-            });
-            /* eslint-enable */
+        it('should bar', function() {
+          httpception({ request: 'GET /foo', response: 200 });
+          return expect('GET /bar', 'to yield response', 200);
+        });
+        /* eslint-enable */
       },
       'when run through mocha to satisfy',
       {
@@ -202,16 +202,16 @@ describe('in afterEach mode', function() {
     return expect(
       () => {
         /* eslint-disable */
-            it('should bar', function () {
-                httpception({ request: 'GET /foo', response: 200 });
-                return expect('GET /bar', 'to yield response', 200);;
-            });
+        it('should bar', function() {
+          httpception({ request: 'GET /foo', response: 200 });
+          return expect('GET /bar', 'to yield response', 200);
+        });
 
-            it('should foo', function () {
-                httpception({ request: 'GET /foo', response: 200 });
-                return expect('/bar', 'to yield response', 200);
-            });
-            /* eslint-enable */
+        it('should foo', function() {
+          httpception({ request: 'GET /foo', response: 200 });
+          return expect('/bar', 'to yield response', 200);
+        });
+        /* eslint-enable */
       },
       'when run through mocha to satisfy',
       {
@@ -248,18 +248,18 @@ describe('in afterEach mode', function() {
     return expect(
       () => {
         /* eslint-disable */
-            it('should foo', function () {
-                httpception([
-                    { request: 'GET /foo', response: 200 },
-                    { request: 'GET /bar', response: 200 },
-                    { request: 'GET /baz', response: 200 }
-                ]);
+        it('should foo', function() {
+          httpception([
+            { request: 'GET /foo', response: 200 },
+            { request: 'GET /bar', response: 200 },
+            { request: 'GET /baz', response: 200 }
+          ]);
 
-                return expect('/foo', 'to yield response', 200).then(
-                    () => expect('/foo', 'to yield response', 200)
-                );
-            });
-            /* eslint-enable */
+          return expect('/foo', 'to yield response', 200).then(() =>
+            expect('/foo', 'to yield response', 200)
+          );
+        });
+        /* eslint-enable */
       },
       'when run through mocha to satisfy',
       {
@@ -290,23 +290,24 @@ describe('in afterEach mode', function() {
     return expect(
       () => {
         /* eslint-disable */
-            it('should foo', function () {
-                httpception([
-                    { request: 'GET /foo', response: 200 },
-                    { request: 'GET /bar', response: 200 },
-                    { request: 'GET /baz', response: 200 }
-                ]);
+        it('should foo', function() {
+          httpception([
+            { request: 'GET /foo', response: 200 },
+            { request: 'GET /bar', response: 200 },
+            { request: 'GET /baz', response: 200 }
+          ]);
 
-                return expect('/foo', 'to yield response', 200).then(
-                    () => expect('/foo', 'to yield response', 200)
-                ).catch(
-                    (err) => new Promise((resolve, reject) => {
-                        const actualError = new Error('Actual Error');
-                        setTimeout(() => reject(actualError), 500)
-                    })
-                );
-            });
-            /* eslint-enable */
+          return expect('/foo', 'to yield response', 200)
+            .then(() => expect('/foo', 'to yield response', 200))
+            .catch(
+              err =>
+                new Promise((resolve, reject) => {
+                  const actualError = new Error('Actual Error');
+                  setTimeout(() => reject(actualError), 500);
+                })
+            );
+        });
+        /* eslint-enable */
       },
       'when run through mocha to satisfy',
       {
