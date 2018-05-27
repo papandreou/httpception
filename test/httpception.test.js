@@ -74,7 +74,7 @@ describe('httpception', function () {
                     response: 200
                 }, () => Promise.resolve()),
                 'to be rejected with',
-                    'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
+                'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
                     '\n' +
                     '// missing:\n' +
                     '// GET /\n' +
@@ -93,7 +93,7 @@ describe('httpception', function () {
                     }
                 ], () => Promise.resolve()),
                 'to be rejected with',
-                    'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
+                'expected () => Promise.resolve() to perform HTTP traffic [ { request: \'GET http://example.com/\', response: 200 } ]\n' +
                     '\n' +
                     '// missing:\n' +
                     '// GET /\n' +

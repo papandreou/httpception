@@ -42,9 +42,9 @@ describe('in afterEach mode', function () {
         }
 
         return fs.writeFileAsync(tmpFileName, preamble + code, 'utf-8')
-        .then(() => expect.promise.fromNode(cb => childProcess.exec(testCommand, cb.bind(null, null))))
-        .then((output) => expect.shift({ stdout: output[1], stderr: output[2] }))
-        .finally(() => fs.unlinkAsync(tmpFileName));
+            .then(() => expect.promise.fromNode(cb => childProcess.exec(testCommand, cb.bind(null, null))))
+            .then((output) => expect.shift({ stdout: output[1], stderr: output[2] }))
+            .finally(() => fs.unlinkAsync(tmpFileName));
     });
 
     it('should succeed when the correct HTTP request is made', function () {
