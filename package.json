@@ -24,7 +24,7 @@
     "eslint": "^3.18.0",
     "eslint-config-onelint": "^2.0.0",
     "jest": "^23.0.1",
-    "mocha": "^3.2.0",
+    "mocha": "^5.2.0",
     "node-version-check": "2.2.0",
     "nyc": "^10.1.2",
     "unexpected-http": "^6.0.0"
