@@ -169,8 +169,8 @@ describe('httpception', function() {
           response: 200
         });
         return expect(
-          httpception([], () =>
-            expect('GET http://example.com/', 'to yield response', 200)
+          // prettier-ignore
+          httpception([], () => expect('GET http://example.com/', 'to yield response', 200)
           ),
           'to be rejected with',
           "expected () => expect('GET http://example.com/', 'to yield response', 200)\n" +
