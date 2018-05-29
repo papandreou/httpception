@@ -29,7 +29,7 @@
     "mocha": "^5.2.0",
     "node-version-check": "2.2.0",
     "nyc": "^11.8.0",
-    "prettier": "1.13.0",
+    "prettier": "1.13.1",
     "unexpected-http": "^6.0.0"
   },
   "nyc": {
