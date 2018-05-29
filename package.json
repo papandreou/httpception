@@ -23,13 +23,13 @@
     "coveralls": "^3.0.1",
     "eslint": "^4.19.1",
     "eslint-config-onelint": "^3.0.0",
-    "eslint-config-pretty-standard": "1.4.1",
-    "eslint-plugin-prettier": "2.6.0",
+    "eslint-config-pretty-standard": "^1.4.1",
+    "eslint-plugin-prettier": "^2.6.0",
     "jest": "^23.0.1",
     "mocha": "^5.2.0",
-    "node-version-check": "2.2.0",
+    "node-version-check": "^2.2.0",
     "nyc": "^11.8.0",
-    "prettier": "1.13.2",
+    "prettier": "^1.13.2",
     "unexpected-http": "^6.0.0"
   },
   "nyc": {
