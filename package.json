@@ -23,7 +23,7 @@
     "coveralls": "^3.0.1",
     "eslint": "^5.0.0",
     "eslint-config-pretty-standard": "^2.0.0",
-    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "^3.0.0",
     "jest": "^23.0.1",
     "mocha": "^5.2.0",
     "node-version-check": "^2.2.0",
