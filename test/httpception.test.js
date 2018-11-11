@@ -1,6 +1,8 @@
 const expect = require('unexpected')
   .clone()
   .use(require('unexpected-http'));
+const http = require('http');
+
 const httpception = require('../lib/httpception');
 
 httpception.expect.output.preferredWidth = 140;
@@ -203,5 +205,77 @@ describe('httpception', function() {
         'messy.Message: Unsupported property name: foobarquux'
       );
     });
+  });
+});
+
+describe('httpception.record', () => {
+  let handleRequest;
+  let server;
+  let serverAddress;
+  let serverHostname;
+  let serverUrl;
+
+  beforeEach(() => {
+    handleRequest = undefined;
+    server = http
+      .createServer((req, res) => {
+        res.sendDate = false;
+        handleRequest(req, res);
+      })
+      .listen(0);
+    serverAddress = server.address();
+    serverHostname =
+      serverAddress.address === '::' ? 'localhost' : serverAddress.address;
+    serverUrl = `http://${serverHostname}:${serverAddress.port}/`;
+  });
+
+  afterEach(() => {
+    server.close();
+  });
+
+  it('should record', () => {
+    handleRequest = (req, res) => {
+      console.log('HANDLE');
+      res.setHeader('Allow', 'GET, HEAD');
+      res.statusCode = 405;
+      res.end();
+    };
+
+    return httpception
+      .record(() =>
+        expect(
+          {
+            url: `POST ${serverUrl}`,
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: 'foo=bar'
+          },
+          'to yield response',
+          405
+        ).then(() => {
+          console.log('RESOLVE');
+        })
+      )
+      .then(result =>
+        expect(result, 'to equal', {
+          request: {
+            host: serverHostname,
+            port: serverAddress.port,
+            url: 'POST /',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+              Host: `${serverHostname}:${serverAddress.port}`
+            },
+            body: 'foo=bar'
+          },
+          response: {
+            statusCode: 405,
+            headers: {
+              Allow: 'GET, HEAD'
+            }
+          }
+        })
+      );
   });
 });
