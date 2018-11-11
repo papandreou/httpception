@@ -11,7 +11,7 @@ Mock out HTTP traffic during a test, experimentally extracted from
 
 ```js
 var httpception = require('httpception');
-var got = require('got');
+var fetch = require('node-fetch');
 var assert = require('assert');
 
 it('should perform the right HTTP request', () => {
@@ -25,9 +25,10 @@ it('should perform the right HTTP request', () => {
         }
     });
 
-    return got('example.com/foobar')
-        .then(response => {
-            assert.equal(response.body, 'the text');
+    return fetch('example.com/foobar')
+        .then(res => res.text())
+        .then(body => {
+            assert.equal(body, 'the text');
         });
 });
 ```
