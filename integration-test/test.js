@@ -1,4 +1,4 @@
-const expect = require('unexpected');
+const expect = require('unexpected').clone();
 const pathModule = require('path');
 const childProcess = require('child_process');
 
@@ -11,7 +11,7 @@ describe('in afterEach mode', function() {
 
   const preamble =
     "var httpception = require('../../');\n" +
-    "var expect = require('unexpected').use(require('unexpected-http'));\n";
+    "var expect = require('unexpected').clone().use(require('unexpected-http'));\n";
 
   expect.addAssertion(
     '<function> when run through (mocha|jest) <assertion>',
