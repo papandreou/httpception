@@ -13,6 +13,10 @@
     "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm run coverage-test && echo google-chrome coverage/lcov-report/index.html",
     "coverage-test": "npm run test-mocha && JEST=false npm run test-integration"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/papandreou/httpception.git"
+  },
   "author": "Andreas Lind <andreaslindpetersen@gmail.com>",
   "license": "BSD-3-Clause",
   "dependencies": {
