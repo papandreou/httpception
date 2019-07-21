@@ -39,22 +39,25 @@ describe('in afterEach mode', function() {
       );
       var testCommand;
       if (isMocha) {
-        testCommand =
-          process.argv[0] +
-          ' ' +
-          pathModule.resolve(__dirname, '..', 'node_modules', '.bin', 'mocha') +
-          ' ' +
-          tmpFileName;
+        testCommand = `${process.argv[0]} ${pathModule.resolve(
+          __dirname,
+          '..',
+          'node_modules',
+          '.bin',
+          'mocha'
+        )} ${tmpFileName}`;
       } else {
         // jest
-        testCommand =
-          process.argv[0] +
-          ' ' +
-          pathModule.resolve(__dirname, '..', 'node_modules', '.bin', 'jest') +
-          ' --config ' +
-          pathModule.resolve(__dirname, 'jest.config.js') +
-          ' ' +
-          tmpFileName;
+        testCommand = `${process.argv[0]} ${pathModule.resolve(
+          __dirname,
+          '..',
+          'node_modules',
+          '.bin',
+          'jest'
+        )} --config ${pathModule.resolve(
+          __dirname,
+          'jest.config.js'
+        )} ${tmpFileName}`;
       }
 
       return fs
