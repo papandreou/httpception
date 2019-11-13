@@ -27,8 +27,12 @@ describe('httpception', function() {
         response: 200
       });
 
-      return expect('GET http://example.com/', 'to yield response', 200).then(
-        () => expect('POST http://example.com/', 'to yield response', 200)
+      return expect(
+        'GET http://example.com/',
+        'to yield response',
+        200
+      ).then(() =>
+        expect('POST http://example.com/', 'to yield response', 200)
       );
     });
 
@@ -44,8 +48,12 @@ describe('httpception', function() {
         }
       ]);
 
-      return expect('GET http://example.com/', 'to yield response', 200).then(
-        () => expect('POST http://example.com/', 'to yield response', 200)
+      return expect(
+        'GET http://example.com/',
+        'to yield response',
+        200
+      ).then(() =>
+        expect('POST http://example.com/', 'to yield response', 200)
       );
     });
   });
@@ -157,8 +165,12 @@ describe('httpception', function() {
             response: 200
           },
           () =>
-            expect('GET http://example.com/', 'to yield response', 200).then(
-              () => expect('POST http://example.com/', 'to yield response', 200)
+            expect(
+              'GET http://example.com/',
+              'to yield response',
+              200
+            ).then(() =>
+              expect('POST http://example.com/', 'to yield response', 200)
             )
         );
       });
