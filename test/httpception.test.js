@@ -1,30 +1,28 @@
-const expect = require('unexpected')
-  .clone()
-  .use(require('unexpected-http'));
+const expect = require('unexpected').clone().use(require('unexpected-http'));
 const httpception = require('../lib/httpception');
 
 httpception.expect.output.preferredWidth = 140;
 
-describe('httpception', function() {
-  describe('when invoked without a promise factory', function() {
-    it('should mock out a single request and succeed when it is performed', function() {
+describe('httpception', function () {
+  describe('when invoked without a promise factory', function () {
+    it('should mock out a single request and succeed when it is performed', function () {
       httpception({
         request: 'GET http://example.com/',
-        response: 200
+        response: 200,
       });
 
       return expect('GET http://example.com/', 'to yield response', 200);
     });
 
-    it('should mock out two requests given in separate httpception calls and succeed when they are performed', function() {
+    it('should mock out two requests given in separate httpception calls and succeed when they are performed', function () {
       httpception({
         request: 'GET http://example.com/',
-        response: 200
+        response: 200,
       });
 
       httpception({
         request: 'POST http://example.com/',
-        response: 200
+        response: 200,
       });
 
       return expect(
@@ -36,16 +34,16 @@ describe('httpception', function() {
       );
     });
 
-    it('should mock out two requests given as an array and succeed when they are performed', function() {
+    it('should mock out two requests given as an array and succeed when they are performed', function () {
       httpception([
         {
           request: 'GET http://example.com/',
-          response: 200
+          response: 200,
         },
         {
           request: 'POST http://example.com/',
-          response: 200
-        }
+          response: 200,
+        },
       ]);
 
       return expect(
@@ -58,18 +56,18 @@ describe('httpception', function() {
     });
   });
 
-  describe('invoked in "promise factory" mode', function() {
-    it('should succeed', function() {
+  describe('invoked in "promise factory" mode', function () {
+    it('should succeed', function () {
       return httpception(
         {
           request: 'GET http://example.com/',
-          response: 200
+          response: 200,
         },
         () => expect('GET http://example.com/', 'to yield response', 200)
       );
     });
 
-    it('should not return a mitm error if the http conversation was ok', function() {
+    it('should not return a mitm error if the http conversation was ok', function () {
       return expect(
         httpception([], () => Promise.reject(new Error('foo'))),
         'to be rejected with',
@@ -77,16 +75,16 @@ describe('httpception', function() {
       );
     });
 
-    it('should succeed when a single function is passed and it does not perform any HTTP requests', function() {
+    it('should succeed when a single function is passed and it does not perform any HTTP requests', function () {
       return httpception(() => Promise.resolve());
     });
 
-    it('should fail when no HTTP requests are made and there is a one mocked out', function() {
+    it('should fail when no HTTP requests are made and there is a one mocked out', function () {
       return expect(
         httpception(
           {
             request: 'GET http://example.com/',
-            response: 200
+            response: 200,
           },
           () => Promise.resolve()
         ),
@@ -101,14 +99,14 @@ describe('httpception', function() {
       );
     });
 
-    it('should fail when no HTTP requests are made and there is a one mocked out (given as an array)', function() {
+    it('should fail when no HTTP requests are made and there is a one mocked out (given as an array)', function () {
       return expect(
         httpception(
           [
             {
               request: 'GET http://example.com/',
-              response: 200
-            }
+              response: 200,
+            },
           ],
           () => Promise.resolve()
         ),
@@ -123,11 +121,11 @@ describe('httpception', function() {
       );
     });
 
-    describe('when queueing up mock traffic before the promise factory is invoked', function() {
-      it('should succeed', function() {
+    describe('when queueing up mock traffic before the promise factory is invoked', function () {
+      it('should succeed', function () {
         httpception({
           request: 'GET http://example.com/',
-          response: 200
+          response: 200,
         });
 
         return httpception([], () =>
@@ -135,15 +133,15 @@ describe('httpception', function() {
         );
       });
 
-      it('should succeed when queueing up twice', function() {
+      it('should succeed when queueing up twice', function () {
         httpception({
           request: 'GET http://example.com/',
-          response: 200
+          response: 200,
         });
 
         httpception({
           request: 'POST http://example.com/',
-          response: 200
+          response: 200,
         });
 
         return httpception([], () =>
@@ -153,16 +151,16 @@ describe('httpception', function() {
         );
       });
 
-      it('should succeed when additional traffic is passed to the httpception call that launches the promise factory', function() {
+      it('should succeed when additional traffic is passed to the httpception call that launches the promise factory', function () {
         httpception({
           request: 'GET http://example.com/',
-          response: 200
+          response: 200,
         });
 
         return httpception(
           {
             request: 'POST http://example.com/',
-            response: 200
+            response: 200,
           },
           () =>
             expect(
@@ -175,10 +173,10 @@ describe('httpception', function() {
         );
       });
 
-      it('should fail with a diff', function() {
+      it('should fail with a diff', function () {
         httpception({
           request: 'POST http://example.com/',
-          response: 200
+          response: 200,
         });
         return expect(
           // prettier-ignore
@@ -199,17 +197,17 @@ describe('httpception', function() {
       });
     });
 
-    it('should throw if an unsupported property is passed as part of a response property', function() {
+    it('should throw if an unsupported property is passed as part of a response property', function () {
       return expect(
         httpception(
           {
             request: 'GET http://example.com/',
             response: {
               statusCode: 200,
-              foobarquux: 123
-            }
+              foobarquux: 123,
+            },
           },
-          function() {}
+          function () {}
         ),
         'to be rejected with',
         'messy.Message: Unsupported property name: foobarquux'
