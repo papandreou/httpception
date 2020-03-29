@@ -9,7 +9,7 @@
     "test-integration": "mocha integration-test/test.js --timeout 30000",
     "test-mocha": "mocha --opts test/mocha/mocha.opts",
     "test-jest": "if ( node-version-gte-6 ); then jest --config test/jest/jest.config.js; fi",
-    "ci": "npm test && npm run lint && npm run coverage",
+    "test:ci": "npm run coverage",
     "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm run coverage-test && echo google-chrome coverage/lcov-report/index.html",
     "coverage-test": "npm run test-mocha && JEST=false npm run test-integration"
   },
@@ -37,7 +37,7 @@
     "mocha": "^7.0.0",
     "node-version-check": "^2.2.0",
     "nyc": "^15.0.0",
-    "prettier": "~1.19.1",
+    "prettier": "~2.0.2",
     "unexpected-http": "^7.0.0"
   },
   "nyc": {
