@@ -1,5 +1,4 @@
-httpception
-===========
+# httpception
 
 [![NPM version](https://badge.fury.io/js/httpception.svg)](http://badge.fury.io/js/httpception)
 [![Build Status](https://travis-ci.org/papandreou/httpception.svg?branch=master)](https://travis-ci.org/papandreou/httpception)
@@ -15,20 +14,19 @@ var got = require('got');
 var assert = require('assert');
 
 it('should perform the right HTTP request', () => {
-    httpception({
-        request: 'GET http://example.com/foobar',
-        response: {
-            headers: {
-                'Content-Type': 'text/plain'
-            },
-            body: 'the text'
-        }
-    });
+  httpception({
+    request: 'GET http://example.com/foobar',
+    response: {
+      headers: {
+        'Content-Type': 'text/plain',
+      },
+      body: 'the text',
+    },
+  });
 
-    return got('example.com/foobar')
-        .then(response => {
-            assert.equal(response.body, 'the text');
-        });
+  return got('example.com/foobar').then((response) => {
+    assert.equal(response.body, 'the text');
+  });
 });
 ```
 
@@ -43,18 +41,21 @@ function returns a promise, the mocks will be kept until the promise has
 resolved:
 
 ```js
-it('should perform the right HTTP request', () => httpception({
-    request: 'GET /foobar',
-    response: {
+it('should perform the right HTTP request', () =>
+  httpception(
+    {
+      request: 'GET /foobar',
+      response: {
         statusCode: 200,
-        body: 'the text'
+        body: 'the text',
+      },
+    },
+    () => {
+      return got('example.com/foobar').then((response) => {
+        assert.equal(response.body, 'the text');
+      });
     }
-}, () => {
-    return got('example.com/foobar')
-        .then(response => {
-            assert.equal(response.body, 'the text');
-        });
-}));
+  ));
 ```
 
 When the test is done, the http module will automatically be restored,
