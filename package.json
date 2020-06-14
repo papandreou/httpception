@@ -21,7 +21,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "11.14.0",
-    "unexpected-mitm": "^13.0.0"
+    "unexpected-mitm": "13.2.1"
   },
   "devDependencies": {
     "coveralls": "^3.0.1",
