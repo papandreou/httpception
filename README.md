@@ -60,3 +60,7 @@ it('should perform the right HTTP request', () =>
 
 When the test is done, the http module will automatically be restored,
 and the test will fail if there are unexercised mocks.
+
+## Releases
+
+[Changelog](https://github.com/papandreou/httpception/blob/master/CHANGELOG.md)
