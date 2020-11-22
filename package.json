@@ -37,7 +37,7 @@
     "mocha": "^7.0.0",
     "node-version-check": "^2.2.0",
     "nyc": "^15.0.0",
-    "prettier": "~2.1.0",
+    "prettier": "^2.2.0",
     "unexpected-http": "^8.0.1"
   },
   "nyc": {
