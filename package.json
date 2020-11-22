@@ -4,7 +4,7 @@
   "description": "Mock HTTP module",
   "main": "lib/httpception.js",
   "scripts": {
-    "lint": "eslint . && prettier --check '**/*.{js,md}'",
+    "lint": "eslint . && prettier --check '**/*.{js,json,md}'",
     "test": "npm run test-mocha && npm run test-jest && npm run test-integration",
     "test-integration": "mocha integration-test/test.js --timeout 30000",
     "test-mocha": "mocha --opts test/mocha/mocha.opts",
