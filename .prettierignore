@@ -1,4 +1,6 @@
-package.json
 /coverage/
 /node_modules/
 /.nyc_output/
+
+# Don't fight npm i --save
+/package.json
