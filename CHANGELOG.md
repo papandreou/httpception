@@ -1,3 +1,41 @@
+### v4.0.0 (2020-11-22)
+
+#### Pull requests
+
+- [#61](https://github.com/papandreou/httpception/pull/61) Upgrade unexpected to version 11.15.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#60](https://github.com/papandreou/httpception/pull/60) Upgrade eslint-config-standard to version 16.0.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#58](https://github.com/papandreou/httpception/pull/58) Upgrade eslint-config-standard to version 15.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#57](https://github.com/papandreou/httpception/pull/57) Upgrade unexpected to version 11.15.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#56](https://github.com/papandreou/httpception/pull/56) Upgrade prettier to version 2.1.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#55](https://github.com/papandreou/httpception/pull/55) Upgrade eslint-plugin-mocha to version 8.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#52](https://github.com/papandreou/httpception/pull/52) Upgrade eslint-plugin-mocha to version 7.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#51](https://github.com/papandreou/httpception/pull/51) Upgrade eslint to version 7.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#50](https://github.com/papandreou/httpception/pull/50) Upgrade jest to version 26.0.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#49](https://github.com/papandreou/httpception/pull/49) Upgrade unexpected to version 11.14.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#46](https://github.com/papandreou/httpception/pull/46) Upgrade unexpected to version 11.13.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#45](https://github.com/papandreou/httpception/pull/45) Upgrade jest to version 25.1.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#44](https://github.com/papandreou/httpception/pull/44) Upgrade mocha to version 7.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#43](https://github.com/papandreou/httpception/pull/43) Upgrade unexpected to version 11.12.1 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#42](https://github.com/papandreou/httpception/pull/42) Upgrade eslint-plugin-node to version 11.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#41](https://github.com/papandreou/httpception/pull/41) Upgrade unexpected to version 11.12.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#40](https://github.com/papandreou/httpception/pull/40) Upgrade nyc to version 15.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#39](https://github.com/papandreou/httpception/pull/39) Upgrade unexpected to version 11.11.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#38](https://github.com/papandreou/httpception/pull/38) Upgrade unexpected to version 11.10.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#37](https://github.com/papandreou/httpception/pull/37) Upgrade unexpected to version 11.9.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#36](https://github.com/papandreou/httpception/pull/36) New version of unexpected \(11.8.1\) broke the build ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#35](https://github.com/papandreou/httpception/pull/35) Upgrade eslint-plugin-node to version 10.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#34](https://github.com/papandreou/httpception/pull/34) Upgrade eslint-config-standard to version 14.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+- [#32](https://github.com/papandreou/httpception/pull/32) Upgrade unexpected-mitm to version 13.0.0 ([depfu[bot]](mailto:23717796+depfu[bot]@users.noreply.github.com))
+
+#### Commits to master
+
+- [Add CHANGELOG.md + offline-github-changelog integration](https://github.com/papandreou/httpception/commit/169ae9c28cfc4411b7511b74df16347665840ddb) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Sanitize .prettierignore](https://github.com/papandreou/httpception/commit/51cf0a18f5ba9ff196791ffc93907e40dcb5458f) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Remove conditional from npm run test-jest now that we're node.js 10+](https://github.com/papandreou/httpception/commit/c8c94a0ae8c4066c8070012ce7f1a375ace165e0) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Also check \*.json with prettier](https://github.com/papandreou/httpception/commit/9944758fadfc9eac55b8e04400f25cb269f0c8df) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [Update prettier to ~2.2.0](https://github.com/papandreou/httpception/commit/30a79ca36e5a6d07388c24c2fb89783784838be6) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+- [+8 more](https://github.com/papandreou/httpception/compare/v3.0.0...v4.0.0)
+
 ### v3.0.0 (2019-06-23)
 
 #### Pull requests
