@@ -1,3 +1,7 @@
+### v4.0.1 (2020-11-22)
+
+- [Update unexpected-mitm to ^14.0.1](https://github.com/papandreou/httpception/commit/814ebbdbabde1e085bb3558b69481e1176f03f2c) ([Andreas Lind](mailto:andreaslindpetersen@gmail.com))
+
 ### v4.0.0 (2020-11-22)
 
 #### Pull requests
