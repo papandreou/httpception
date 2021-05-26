@@ -108,7 +108,8 @@ describe('in afterEach mode', function () {
       },
       'when run through mocha to satisfy',
       {
-        stdout: /"after each" hook for "should foo"[\s\S]*\/\/ missing:\n\/\/ GET \/\n/,
+        stdout:
+          /"after each" hook for "should foo"[\s\S]*\/\/ missing:\n\/\/ GET \/\n/,
         stderr: expect.it('not to contain', 'UnhandledPromiseRejection'),
       }
     ).and('when run through jest to satisfy', {
