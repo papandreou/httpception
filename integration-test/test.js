@@ -37,7 +37,7 @@ describe('in afterEach mode', function () {
         tmpDir,
         `httpception.${runner}-${Math.round(10000000 * Math.random())}.test.js`
       );
-      var testCommand;
+      let testCommand;
       if (isMocha) {
         testCommand = `${process.argv[0]} ${pathModule.resolve(
           __dirname,
