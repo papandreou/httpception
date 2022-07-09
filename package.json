@@ -12,7 +12,7 @@
     "test:ci": "npm run coverage",
     "coverage": "NODE_ENV=development nyc --reporter=lcov --reporter=text --all -- npm run coverage-test && echo google-chrome coverage/lcov-report/index.html",
     "coverage-test": "npm run test-mocha && JEST=false npm run test-integration",
-    "preversion": "offline-github-changelog --next=${npm_package_version} > CHANGELOG.md && git add CHANGELOG.md"
+    "preversion": "offline-github-changelog --next=${npm_new_version} > CHANGELOG.md && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
