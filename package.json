@@ -22,7 +22,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "unexpected": "^13.0.0",
-    "unexpected-mitm": "^14.1.0"
+    "unexpected-mitm": "14.2.0"
   },
   "devDependencies": {
     "coveralls": "^3.0.1",
